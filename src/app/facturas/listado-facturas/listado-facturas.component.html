@@ -1,0 +1,22 @@
+<div class="card xl">
+    <div class="titles-row">
+        <h1>Listado de facturas</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Base Imponible</th>
+        </tr>
+        <tr *ngIf="cargando">
+            <td colspan="3">Cargando facturas...</td>
+        </tr>
+        <ng-template ngFor let-factura [ngForOf]="facturas">
+            <tr *ngIf="!cargando">
+                <td>{{factura?.razonSocial}}</td>
+                <td>{{factura?.fecha}}</td>
+                <td>{{factura?.base}}</td>
+            </tr>
+        </ng-template>
+    </table>
+</div>
