@@ -1,0 +1,62 @@
+<div class="card l">
+    <h1>Ejemplo de formulario driven/reactive</h1>
+    <hr>
+    <form [formGroup]="formFactura" (ngSubmmit)="crearFactura()">
+        <div class="input-row">
+            <label>
+                Cliente
+                <span class="alert" *ngIf="formFactura.controls.razonSocial.dirty && formFactura.controls.razonSocial.errors && formFactura.controls.razonSocial.errors.required">
+                    * Campo obligatorio
+                </span>
+                <span class="alert" *ngIf="formFactura.controls.razonSocial.dirty && formFactura.controls.razonSocial.errors && formFactura.controls.razonSocial.errors.minlength">
+                    * El cliente debe tener más de 4 caracteres
+                </span>
+                <span class="valid" *ngIf="formFactura.controls.razonSocial.valid">
+                    &#10003;
+                </span>
+            </label>
+            <input type="text" formControlName="razonSocial">
+        </div>
+        <div class="input-row">
+            <label>
+                CIF
+                <span class="alert" *ngIf="formFactura.controls.cif.dirty && formFactura.controls.cif.errors && formFactura.controls.cif.errors.invalidCif">
+                    {{formFactura.controls.cif.errors.mensaje}}
+                </span>
+                <span class="valid" *ngIf="formFactura.controls.cif.valid">
+                    &#10003;
+                </span>
+            </label>
+            <input type="text" formControlName="cif" maxlength=9>
+        </div>
+        <div class="input-row">
+            <label>Fecha factura</label>
+            <input type="date" formControlName="fecha">
+        </div>
+        <div class="input-row">
+            <label>Base imponible</label>
+            <input type="number" formControlName="base">
+        </div>
+        <div class="input-row">
+            <label>% IVA</label>
+            <select formControlName="tipo">
+                <option value=0>0 %</option>
+                <option value=0.04>4 %</option>
+                <option value=0.1>10 %</option>
+                <option value=0.21>21 %</option>
+            </select>
+        </div>
+        <div class="input-row">
+            <label>Importe IVA</label>
+            <input type="number" formControlName="importeIVA" readonly>
+        </div>
+        <div class="input-row">
+            <label>Total Factura</label>
+            <input type="number" formControlName="totalFactura" readonly>
+        </div>
+        <div class="buttons-row">
+            <button type="button" class="outline" routerLink="/">Cancelar</button>
+            <button type="submit" [disabled]="formFactura.valid">Añadir</button>
+        </div>
+    </form>
+</div>

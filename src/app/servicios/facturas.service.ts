@@ -21,5 +21,14 @@ export class FacturasService {
                     )
   }
 
+  postFactura(factura: any) {
+    return this.http.post(this.url + '/factura', factura)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )
+  }
+
 
 }
