@@ -24,8 +24,4 @@ export class ListadoFacturasComponent implements OnInit {
                         })
   }
 
-  crearFactura() {
-    
-  }
-
 }

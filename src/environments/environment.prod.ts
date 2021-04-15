@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  // urlEndpoint: '<url-producción>'
+  urlEndpoint: 'http://localhost:3000'
 };

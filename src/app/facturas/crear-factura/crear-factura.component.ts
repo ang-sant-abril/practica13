@@ -37,4 +37,7 @@ export class CrearFacturaComponent implements OnInit {
                     })
   }
 
+  crearFactura() {
+    
+  }
 }
