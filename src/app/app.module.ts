@@ -10,6 +10,7 @@ import { CrearFacturaComponent } from './facturas/crear-factura/crear-factura.co
 import { NumeroPipe } from './pipes/numero.pipe';
 import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
 import { ModalComponent } from './modal/modal.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalComponent } from './modal/modal.component';
     CrearFacturaComponent,
     NumeroPipe,
     EditarFacturaComponent,
-    ModalComponent
+    ModalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

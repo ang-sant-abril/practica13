@@ -1,0 +1,15 @@
+<div class="card l">
+    <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+        <div class="input-row">
+            <label>Usuario</label>
+            <input type="text" formControlName="usuario">
+        </div>
+        <div class="input-row">
+            <label>Contraseña</label>
+            <input type="password" formControlName="pass">
+        </div>
+        <div class="buttons-row">
+            <button type="submit" [disabled]="formLogin.invalid">Iniciar sesión</button>
+        </div>
+    </form>
+</div>

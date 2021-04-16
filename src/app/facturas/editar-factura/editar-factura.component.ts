@@ -57,7 +57,7 @@ export class EditarFacturaComponent implements OnInit {
     this.facturasService.putFactura(this._id, this.formFactura.value)
                         .subscribe((resp: any) => {
                           console.log(resp);
-                          this.router.navigate(['/']);
+                          this.router.navigate(['/listado-facturas']);
                         }, (err: any) => {
                           console.log(err);
                         })
