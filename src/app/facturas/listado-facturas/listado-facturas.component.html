@@ -20,6 +20,9 @@
                 <td>
                     <button routerLink="/editar-factura/{{factura._id}}">Editar</button>
                 </td>
+                <td>
+                    <button (click)="deleteFactura(factura._id)">Eliminar</button>
+                </td>
             </tr>
         </ng-template>
     </table>

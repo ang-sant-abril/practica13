@@ -48,5 +48,13 @@ export class FacturasService {
                     )
   }
 
+  deleteFactura(_id: any) {
+    return this.http.delete(this.url + '/factura/' + _id)
+                    .pipe(
+                      map((resp: any) => {
+                        return resp;
+                      })
+                    )
+  }
 
 }

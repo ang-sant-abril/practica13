@@ -14,6 +14,10 @@ export class ListadoFacturasComponent implements OnInit {
   constructor(private facturasService: FacturasService) { }
 
   ngOnInit(): void {
+    this.cargaFacturas();
+  }
+  
+  cargaFacturas() {
     this.facturasService.getFacturas()
                         .subscribe((resp: any) => {
                           this.cargando = false;
@@ -21,6 +25,16 @@ export class ListadoFacturasComponent implements OnInit {
                         }, (err: any) => {
                           this.cargando = false;
                           console.log(err);
+                        })
+  }
+
+  deleteFactura(_id: any) {
+    this.facturasService.deleteFactura(_id)
+                        .subscribe((resp: any) => {
+                          console.log(resp);
+                          this.cargaFacturas();
+                        }, (err: any) => {
+                          console.log(err)
                         })
   }
 
