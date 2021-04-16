@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FacturasService } from 'src/app/servicios/facturas.service';
 import { ValidateCif } from 'src/app/validators/cif.validator';
 
 @Component({
-  selector: 'app-crear-factura',
-  templateUrl: './crear-factura.component.html',
-  styleUrls: ['./crear-factura.component.css']
+  selector: 'app-editar-factura',
+  templateUrl: './editar-factura.component.html',
+  styleUrls: ['./editar-factura.component.css']
 })
-export class CrearFacturaComponent implements OnInit {
+export class EditarFacturaComponent implements OnInit {
 
+  _id: number;
   formFactura: FormGroup;
   importeIVA: number = 0; // Creamos propiedades para campos calculados
   totalFactura: number = 0;
 
-  constructor(private facturasService: FacturasService,
-              private router: Router) { }
+  constructor(private ruta: ActivatedRoute,
+              private router: Router,
+              private facturasService: FacturasService) { }
 
   ngOnInit(): void {
+    this._id = this.ruta.snapshot.params._id;
     this.formFactura = new FormGroup({
       razonSocial: new FormControl('', [Validators.required, Validators.minLength(4)]),
       cif: new FormControl('', [ValidateCif]),
@@ -28,8 +31,14 @@ export class CrearFacturaComponent implements OnInit {
       // importeIVA: new FormControl(0),
       // totalFactura: new FormControl(0)
     })
-    console.log(this.formFactura);
     this.actualizarFactura();
+    this.facturasService.getFactura(this._id)
+                        .subscribe((resp: any)=>{
+                          this.formFactura.patchValue(resp.factura);
+                          // this.formFactura.get(<campo>).patchValue(<resp.factura.campo>)
+                        },(err: any)=>{
+                          console.log(err);
+                        })
   }
 
   actualizarFactura() {
@@ -44,8 +53,8 @@ export class CrearFacturaComponent implements OnInit {
                     })
   }
 
-  crearFactura() {
-    this.facturasService.postFactura(this.formFactura.value)
+  editarFactura() {
+    this.facturasService.putFactura(this._id, this.formFactura.value)
                         .subscribe((resp: any) => {
                           console.log(resp);
                           this.router.navigate(['/']);
@@ -53,4 +62,5 @@ export class CrearFacturaComponent implements OnInit {
                           console.log(err);
                         })
   }
+
 }

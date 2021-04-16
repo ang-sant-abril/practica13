@@ -1,5 +1,5 @@
 <div class="card l">
-    <form [formGroup]="formFactura" (ngSubmit)="crearFactura()">
+    <form [formGroup]="formFactura" (ngSubmit)="editarFactura()">
         <div class="input-row">
             <label>
                 Cliente
@@ -54,7 +54,7 @@
         </div>
         <div class="buttons-row">
             <button type="button" class="outline" routerLink="/">Cancelar</button>
-            <button type="submit" [disabled]="formFactura.invalid">Añadir</button>
+            <button type="submit" [disabled]="formFactura.invalid">Guardar cambios</button>
         </div>
     </form>
 </div>

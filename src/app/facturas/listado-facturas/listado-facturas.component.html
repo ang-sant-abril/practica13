@@ -17,6 +17,9 @@
                 <td>{{factura?.razonSocial}}</td>
                 <td>{{factura?.fecha}}</td>
                 <td>{{factura?.base}}</td>
+                <td>
+                    <button routerLink="/editar-factura/{{factura._id}}">Editar</button>
+                </td>
             </tr>
         </ng-template>
     </table>

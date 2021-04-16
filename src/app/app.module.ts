@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ListadoFacturasComponent } from './facturas/listado-facturas/listado-facturas.component';
 import { CrearFacturaComponent } from './facturas/crear-factura/crear-factura.component';
 import { NumeroPipe } from './pipes/numero.pipe';
+import { EditarFacturaComponent } from './facturas/editar-factura/editar-factura.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListadoFacturasComponent,
     CrearFacturaComponent,
-    NumeroPipe
+    NumeroPipe,
+    EditarFacturaComponent
   ],
   imports: [
     BrowserModule,
