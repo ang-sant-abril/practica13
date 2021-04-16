@@ -21,9 +21,12 @@
                     <button routerLink="/editar-factura/{{factura._id}}">Editar</button>
                 </td>
                 <td>
-                    <button (click)="deleteFactura(factura._id)">Eliminar</button>
+                    <button (click)="toggleModal(factura._id)">Eliminar</button>
                 </td>
             </tr>
         </ng-template>
     </table>
 </div>
+<app-modal *ngIf="mostrarModal" 
+           [texto]="'¿Está seguro de eliminar la factura?'"
+           (accion)="getAccion($event)"></app-modal>

@@ -10,6 +10,8 @@ export class ListadoFacturasComponent implements OnInit {
 
   facturas: any;
   cargando: boolean = true;
+  mostrarModal: boolean = false;
+  _id: number;
 
   constructor(private facturasService: FacturasService) { }
 
@@ -36,6 +38,22 @@ export class ListadoFacturasComponent implements OnInit {
                         }, (err: any) => {
                           console.log(err)
                         })
+  }
+
+  toggleModal(_id?: number): void {
+    if(_id) {
+      this._id = _id
+    }
+    this.mostrarModal = !this.mostrarModal;
+  }
+
+  getAccion(event: boolean): void {
+    if(event) {
+      this.deleteFactura(this._id);
+      this.toggleModal();
+    } else {
+      this.toggleModal()
+    }
   }
 
 }

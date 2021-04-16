@@ -1,0 +1,14 @@
+<div class="overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <span (click)="setAccion(false)">x</span>
+        </div>
+        <div class="modal-body">
+            {{texto}}
+        </div>
+        <div class="modal-footer">
+            <button (click)="setAccion(false)" class="outline">Cancelar</button>
+            <button (click)="setAccion(true)" class="m-l-small">Aceptar</button>
+        </div>
+    </div>
+</div>
