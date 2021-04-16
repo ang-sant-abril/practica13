@@ -1,6 +1,6 @@
 import { NumeroPipe } from './numero.pipe';
 
-describe('NumeroPipe', () => {
+xdescribe('NumeroPipe', () => {
   it('create an instance', () => {
     const pipe = new NumeroPipe();
     expect(pipe).toBeTruthy();
