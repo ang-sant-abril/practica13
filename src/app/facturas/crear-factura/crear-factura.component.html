@@ -48,11 +48,11 @@
         </div>
         <div class="input-row">
             <label>Importe IVA</label>
-            <input type="number" formControlName="importeIVA" readonly>
+            <input type="text" [value]="importeIVA | numero: 2: '€'" readonly>
         </div>
         <div class="input-row">
             <label>Total Factura</label>
-            <input type="number" formControlName="totalFactura" readonly>
+            <input type="number" [value]="totalFactura  | numero: 2: '€'" readonly>
         </div>
         <div class="buttons-row">
             <button type="button" class="outline" routerLink="/">Cancelar</button>
